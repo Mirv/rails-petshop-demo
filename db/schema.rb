@@ -11,9 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170324192735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animals", force: :cascade do |t|
+    t.date     "last_checkin",                 null: false
+    t.string   "breed",                        null: false
+    t.string   "gender",                       null: false
+    t.string   "name",                         null: false
+    t.string   "owner",                        null: false
+    t.string   "owner_phone",                  null: false
+    t.boolean  "castrated",    default: false
+    t.datetime "birthday",                     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
 end
