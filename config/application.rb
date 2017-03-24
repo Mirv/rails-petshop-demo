@@ -29,6 +29,13 @@ module RailsPetshopDemo
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
 
+    config.generators do |g|
+      # Set RSpec as default test framework
+      g.stylesheets false
+      g.javascripts false
+      g.test_framework :rspec
+    end
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
