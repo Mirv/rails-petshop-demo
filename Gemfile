@@ -29,5 +29,7 @@ group :development, :test do
 end
 
 group :test do
+  # For acceptance tests
+  gem 'capybara', '~> 2.13.0'
   gem 'shoulda-matchers', '~> 3.1'
 end
