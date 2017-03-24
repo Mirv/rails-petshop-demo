@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>List of all Animals on our Database</h1>
+
+  <% if @animals.any? %>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Castrated</th>
+        <th>Last Check-In</th>
+      </tr>
+      <% @animals.each do |animal| %>
+        <tr>
+          <td><%= animal.name %></td>
+          <td><%= animal.breed %></td>
+          <td><%= time_ago_in_words animal.birthday %></td>
+          <td><%= animal.gender.capitalize %></td>
+          <td><%= animal.castrated ? 'Yes' : 'No' %></td>
+          <td><%= time_ago_in_words animal.last_checkin %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <h2>We do not have any animal registered yet.</h2>
+  <% end %>
+</div>
