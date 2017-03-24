@@ -28,6 +28,11 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.8.0'
 end
 
+group :development do
+  # Generate Fake infos for development
+  gem 'ffaker'
+end
+
 group :test do
   # For acceptance tests
   gem 'capybara', '~> 2.13.0'
