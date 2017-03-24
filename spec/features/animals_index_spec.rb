@@ -12,6 +12,6 @@ feature "Animals#index Page" do
     create_list(:animal, 100)
     visit animals_path
     # 101 it's because of the table headers that count as 1 tr too
-    page.all('table.table tr').count.should == 101
+    page.all('table.table tr').count.should == 21
   end
 end

@@ -22,6 +22,11 @@
         </tr>
       <% end %>
     </table>
+
+    <div class="text-center">
+      <%= paginate @animals %>
+    </div>
+
   <% else %>
     <h2>We do not have any animal registered yet.</h2>
   <% end %>
