@@ -1,7 +1,8 @@
 <div class="container">
-  <h1>List of all Animals on our Database</h1>
+  <%= render partial: 'animals/search' %>
 
   <% if @animals.any? %>
+    <h2>We found <%= @animals.total_count %> results for your Search!</h2>
     <table class="table">
       <tr>
         <th>Name</th>
