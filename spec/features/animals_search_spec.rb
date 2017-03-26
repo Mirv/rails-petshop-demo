@@ -17,18 +17,19 @@ feature "Animals Search" do
   scenario "on Homepage with filters" do
     # Create the samples
     create_list(:animal, 10)
-    create(:animal, name: 'Other')
-    create(:animal, name: 'Another')
+    create(:animal, name: 'Other', breed: 'Example')
+    create(:animal, name: 'Different', breed: 'Husky')
     # Go to Homepage
     visit root_path
     # Fill the search form
     within("#search") do
       fill_in 'Name of Animal or Owner', with: 'Other'
+      find('#search_breed').set('Example')
       click_button 'Search'
     end
     # 3 it's because of the table headers that count as 1 tr too
     # And now with Full-Text search the search is wider
-    page.all('table.table tr').count.should eq 3
+    page.all('table.table tr').count.should eq 2
     # Check if the Other name appears on first row (just checking the return)
     page.all('table.table tr').map(&:text)[1].should include 'Other'
   end
@@ -49,18 +50,19 @@ feature "Animals Search" do
   scenario "on animals#index with filters" do
     # Create the samples
     create_list(:animal, 10)
-    create(:animal, name: 'Other')
-    create(:animal, name: 'Another')
+    create(:animal, name: 'Other', breed: 'Example')
+    create(:animal, name: 'Different', breed: 'Husky')
     # Go to Homepage
     visit animals_path
     # Fill the search form
     within("#search") do
       fill_in 'Name of Animal or Owner', with: 'Other'
+      find('#search_breed').set('Example')
       click_button 'Search'
     end
     # 3 it's because of the table headers that count as 1 tr too
     # And now with Full-Text search the search is wider
-    page.all('table.table tr').count.should eq 3
+    page.all('table.table tr').count.should eq 2
     # Check if the Other name appears on first row (just checking the return)
     page.all('table.table tr').map(&:text)[1].should include 'Other'
   end

@@ -10,14 +10,17 @@ class AnimalsController < ApplicationController
       # Using full-text search
       if params[:search][:name_or_owner].present?
         @animals = @animals.by_name_or_owner(params[:search][:name_or_owner])
+      end
 
-      elsif params[:search][:gender].present?
+      if params[:search][:gender].present?
         @animals = @animals.where(gender: params[:search][:gender])
+      end
 
-      elsif params[:search][:breed].present?
+      if params[:search][:breed].present?
         @animals = @animals.where(breed: params[:search][:breed])
+      end
 
-      elsif params[:search][:owner].present?
+      if params[:search][:owner].present?
         @animals = @animals.where(owner: params[:search][:owner])
       end
     end
