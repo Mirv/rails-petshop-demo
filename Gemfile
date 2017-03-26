@@ -39,8 +39,8 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.8.0'
 end
 
-group :development do
-  # Generate Fake infos for development
+group :development, :production do
+  # Generate Fake infos on seed
   gem 'ffaker'
 end
 
@@ -48,4 +48,9 @@ group :test do
   # For acceptance tests
   gem 'capybara', '~> 2.13.0'
   gem 'shoulda-matchers', '~> 3.1'
+end
+
+group :production do
+  gem 'passenger'
+  gem 'rails_12factor'
 end
