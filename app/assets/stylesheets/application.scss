@@ -24,3 +24,9 @@ body {
 .marginTop7 {
   margin-top: 7px;
 }
+
+@media (max-width: 768px) {
+  .marginTopXs10 {
+    margin-top: 10px;
+  }
+}

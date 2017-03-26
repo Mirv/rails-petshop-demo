@@ -23,7 +23,7 @@ feature "Animals Search" do
     visit root_path
     # Fill the search form
     within("#search") do
-      fill_in 'Name', with: 'Other'
+      fill_in 'Name of Animal', with: 'Other'
       click_button 'Search'
     end
     # 101 it's because of the table headers that count as 1 tr too
@@ -54,7 +54,7 @@ feature "Animals Search" do
     visit animals_path
     # Fill the search form
     within("#search") do
-      fill_in 'Name', with: 'Other'
+      fill_in 'Name of Animal', with: 'Other'
       click_button 'Search'
     end
     # 101 it's because of the table headers that count as 1 tr too
