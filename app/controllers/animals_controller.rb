@@ -1,20 +1,23 @@
 class AnimalsController < ApplicationController
   def index
     # Remember to fill the Breeds Select for Search partial
-    @breeds = [['All', '']] + Animal.pluck(:breed).uniq
+    @breeds = [['Breed (all)', '']] + Animal.pluck(:breed).uniq
     # Initialize with all Animals
     @animals = Animal.all
 
     # Filter when search is present
     if params[:search].present?
       if params[:search][:name].present?
-        @animals = Animal.where(name: params[:search][:name])
+        @animals = @animals.where(name: params[:search][:name])
 
       elsif params[:search][:gender].present?
-        @animals = Animal.where(gender: params[:search][:gender])
+        @animals = @animals.where(gender: params[:search][:gender])
 
       elsif params[:search][:breed].present?
-        @animals = Animal.where(breed: params[:search][:breed])
+        @animals = @animals.where(breed: params[:search][:breed])
+
+      elsif params[:search][:owner].present?
+        @animals = @animals.where(owner: params[:search][:owner])
       end
     end
 
