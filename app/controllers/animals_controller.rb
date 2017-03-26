@@ -7,8 +7,9 @@ class AnimalsController < ApplicationController
 
     # Filter when search is present
     if params[:search].present?
-      if params[:search][:name].present?
-        @animals = @animals.where(name: params[:search][:name])
+      # Using full-text search
+      if params[:search][:name_or_owner].present?
+        @animals = @animals.by_name_or_owner(params[:search][:name_or_owner])
 
       elsif params[:search][:gender].present?
         @animals = @animals.where(gender: params[:search][:gender])

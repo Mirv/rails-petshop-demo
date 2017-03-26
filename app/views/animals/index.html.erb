@@ -1,4 +1,6 @@
 <div class="container">
+  <h1>Feel free to search our Database with <%= Animal.count %> records</h1>
+  <br>
   <%= render partial: 'animals/search' %>
 
   <% if @animals.any? %>
@@ -31,6 +33,6 @@
     </div>
 
   <% else %>
-    <h2>We do not have any animal registered yet.</h2>
+    <h2>We haven't found any results for your Search.</h2>
   <% end %>
 </div>

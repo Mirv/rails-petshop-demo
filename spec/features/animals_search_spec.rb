@@ -23,11 +23,12 @@ feature "Animals Search" do
     visit root_path
     # Fill the search form
     within("#search") do
-      fill_in 'Name of Animal', with: 'Other'
+      fill_in 'Name of Animal or Owner', with: 'Other'
       click_button 'Search'
     end
-    # 101 it's because of the table headers that count as 1 tr too
-    page.all('table.table tr').count.should eq 2
+    # 3 it's because of the table headers that count as 1 tr too
+    # And now with Full-Text search the search is wider
+    page.all('table.table tr').count.should eq 3
     # Check if the Other name appears on first row (just checking the return)
     page.all('table.table tr').map(&:text)[1].should include 'Other'
   end
@@ -54,11 +55,12 @@ feature "Animals Search" do
     visit animals_path
     # Fill the search form
     within("#search") do
-      fill_in 'Name of Animal', with: 'Other'
+      fill_in 'Name of Animal or Owner', with: 'Other'
       click_button 'Search'
     end
-    # 101 it's because of the table headers that count as 1 tr too
-    page.all('table.table tr').count.should eq 2
+    # 3 it's because of the table headers that count as 1 tr too
+    # And now with Full-Text search the search is wider
+    page.all('table.table tr').count.should eq 3
     # Check if the Other name appears on first row (just checking the return)
     page.all('table.table tr').map(&:text)[1].should include 'Other'
   end

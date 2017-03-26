@@ -11,10 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324192735) do
+ActiveRecord::Schema.define(version: 20170326200153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
+  enable_extension "fuzzystrmatch"
+  enable_extension "unaccent"
 
   create_table "animals", force: :cascade do |t|
     t.date     "last_checkin",                 null: false

@@ -4,7 +4,7 @@ feature "Animals#index Page" do
   scenario "without any animals or filters" do
     visit animals_path
 
-    expect(page).to have_content 'We do not have any animal registered yet.'
+    expect(page).to have_content "We haven't found any results for your Search."
   end
 
   scenario "with animals and without filters" do
