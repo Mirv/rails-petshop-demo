@@ -19,10 +19,6 @@ class AnimalsController < ApplicationController
       if params[:search][:breed].present?
         @animals = @animals.where(breed: params[:search][:breed])
       end
-
-      if params[:search][:owner].present?
-        @animals = @animals.where(owner: params[:search][:owner])
-      end
     end
 
     # Build the pagination properties
