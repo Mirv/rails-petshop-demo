@@ -5,6 +5,15 @@
 * Rails version: 4.2.7
 * PG version: ~> 0.15
 
+## Which kind of features has this Demo??
+
+- ActiveAdmin for administrative panels
+- Twitter Bootstrap as default CSS Framework
+- Pagination for Searches and index page
+- Using FFaker to generate random data for Seeds
+- Using Capybara to test the search feature
+- Using PgSearch to implement full-text search of animals
+
 ## Installation / Getting Started
 
 To install (development environment) on your machine, just follow the tips above:
