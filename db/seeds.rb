@@ -37,3 +37,7 @@ puts "======> Creating basic animals ... "
   )
 end
 puts "done! \n"
+
+puts "======> Creating basic Admins ... "
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+puts "done! \n"
