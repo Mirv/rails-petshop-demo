@@ -14,8 +14,8 @@
         <li class="<%= 'active' if current_page?(animals_path) %>">
           <%= link_to 'All Animals', animals_path %>
         </li>
-        <li>
-          <%= link_to 'About', '#' %>
+        <li class="<%= 'active' if current_page?(about_path) %>">
+          <%= link_to 'About', about_path %>
         </li>
       </ul>
 
